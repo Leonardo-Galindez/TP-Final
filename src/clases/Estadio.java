@@ -9,7 +9,7 @@ package clases;
  * @author galin
  */
 public class Estadio {
-
+    
     //Atributos
     private int numero;
     private String nombre;
@@ -72,7 +72,7 @@ public class Estadio {
         this.nombre = nom;
     }
 
-    //
+    //mostradores
     public String toString() {
         return "Numero: " + numero 
                 + " \nNombre:" + nombre
