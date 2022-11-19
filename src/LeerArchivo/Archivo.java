@@ -22,16 +22,17 @@ public class Archivo {
     public static void main(String[] args) {
 
         Estadio Estadios[] = new Estadio[100];
-        leerTxt(direccion);
+        leerTxt(direccion,Estadios);
     }
 
-    public static void leerTxt(String direccion) {//direccion del archivo txt
+    public static void leerTxt(String direccion,Estadio Estadios[]) {//direccion del archivo txt
         String Atributos[] = new String[5]; 
         try {
             BufferedReader bf = new BufferedReader(new FileReader(direccion));
             String linea;
             while ((linea = bf.readLine()) != null) {//repite mientras bfRead tiene datos
                 Atributos=ObtenerAtributos(linea);
+                CargarEstadio(Estadios,Atributos);
             }
         }  catch (FileNotFoundException ex) {
             System.err.println(ex.getMessage() + "\nSignifica que el archivo del "
@@ -42,7 +43,7 @@ public class Archivo {
 
     }
 
-    public static String[] ObtenerAtributos(String linea) {
+    public static String[] ObtenerAtributos(String linea) {//separao la linea en atributos y lo guardo en un arreglo
         String Atributos[] = new String[5];
         String atributo;
         int i = 0, posIni=0,posEnd;
@@ -56,6 +57,18 @@ public class Archivo {
         }
         return Atributos;
 
+    }
+    public static void CargarEstadio(Estadio Estadios[],String Atributos[] ){//le asigno los atributos al estadio
+        for(int i=0;i<Estadios.length;i++){
+            Estadio nuevoEstadio= new Estadio(Atributos[0]);
+            Estadios[i]=nuevoEstadio;
+            Estadios[i].setNombre(Atributos[1]);
+            Estadios[i].setCiudad(Atributos[2]);
+            Estadios[i].setCapacidad(Atributos[3]);
+            Estadios[i].setMundial(Atributos[4]);
+        }
+      
+        
     }
 
 }
