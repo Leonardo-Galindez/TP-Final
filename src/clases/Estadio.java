@@ -85,6 +85,7 @@ public class Estadio {
         return this.numero-nuevoEstadio.numero;
     }
     
+    
     public boolean equals(Estadio nuevoEstadio){
         return this.numero==nuevoEstadio.numero;
     }
