@@ -10,43 +10,47 @@ package LeerArchivo;
  */
 //import java.io.*
 import clases.Estadio;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.BufferedReader;//sierve para leer el archivo
+import java.io.FileNotFoundException;// se usa en el primer catch?????
+import java.io.FileReader;// se usa en el primer catch????
+import java.io.IOException;// se usa en el segundo catch
 
 public class Archivo {
 
-    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\txt\\estadiosMundiales.txt";//cambio de ruta
+    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
+// ruta del archivo
 
     public static void main(String[] args) {
 
         Estadio Estadios[] = new Estadio[100];
-        leerTxt(direccion, Estadios);
-        //MostrarEstadios(Estadios);
+        leerTxt(direccion, Estadios);//metodo para leer el archivo
+        MostrarEstadios(Estadios);
     }
 
     public static void leerTxt(String direccion, Estadio Estadios[]) {//direccion del archivo txt
         try {
+            int j=0;
             String Atributos[] = new String[5];
             BufferedReader bf = new BufferedReader(new FileReader(direccion));
             String linea;
             while ((linea = bf.readLine()) != null) {//repite mientras bfRead tiene datos
-
-                CargarEstadio(Estadios,linea);
+                ObtenerAtributos(linea, Atributos);//obtenemos los atributos separados en un arreglo
+                CargarEstadio(Estadios, Atributos,j);//mandamos el arreglo atributos para cargarlo en el arreglo de los estadios
+                j++;
 
             }
         } catch (FileNotFoundException ex) {
             System.err.println(ex.getMessage() + "\nSignifica que el archivo del "
+                    //getMessage()para que seria??
                     + "que queriamos leer no existe.");
-        } catch (IOException ex) {
+        } catch (IOException ex) {//este catch para que serviria?
             System.err.println("Error leyendo o escribiendo en algun archivo.");
         }
 
     }
 
-    public static void ObtenerAtributos(String linea,String Atributos[]) {//separao la linea en atributos y lo guardo en un arreglo
-        
+    public static void ObtenerAtributos(String linea, String Atributos[]) {//separao la linea en atributos y lo guardo en un arreglo
+
         String atributo;
         int i = 0, posIni = 0, posEnd;
         //int numero,capacidad;
@@ -59,29 +63,30 @@ public class Archivo {
         }
         //ERROR
         //Solo muestra hasta el 25
-        System.out.println("hola mundo");
-    }
-
-    public static void CargarEstadio(Estadio Estadios[], String linea) {//le asigno los atributos al estadio
-        String Atributos[] = new String[5];
-        for (int j = 0; j < Estadios.length; j++) {
-            ObtenerAtributos(linea,Atributos);
-            Estadio nuevoEstadio = new Estadio(Atributos[0]);
-            Estadios[j] = nuevoEstadio;
-            Estadios[j].setNombre(Atributos[1]);
-            Estadios[j].setCiudad(Atributos[2]);
-            Estadios[j].setCapacidad(Atributos[3]);
-            Estadios[j].setMundial(Atributos[4]);
-        }
 
     }
-    
+
+    public static void CargarEstadio(Estadio Estadios[], String Atributos[],int j) {//le asigno los atributos al estadio
+
+        String nombre, ciudad, mundial;
+        int numero, capacidad;
+
+        numero = Integer.parseInt(Atributos[0]);//convertimos string a int
+        nombre = Atributos[1];
+        ciudad = Atributos[2];
+        capacidad = Integer.parseInt(Atributos[3]);//convertimos string a int
+        mundial = Atributos[4];
+
+        Estadio nuevoEstadio = new Estadio(numero, nombre, ciudad, capacidad, mundial);
+        Estadios[j] = nuevoEstadio;
+
+    }
+
     //mostrar los estadios
-    /*public static void MostrarEstadios(Estadio Estadios[]){
-        for(int i=0;i<Estadios.length;i++){
+    public static void MostrarEstadios(Estadio Estadios[]) {
+        for (int i = 0; i < 25; i++) {//hasta 25 porque con 100 sale error
             System.out.println(Estadios[i].toString());
+            System.out.println("");
         }
-    }*/
+    }
 }
-
-

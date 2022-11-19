@@ -13,6 +13,8 @@ import java.util.Scanner;
 public class PruebasTrycatch {
 
     public static void main(String[] args) {
+        
+       
         String Atributos[] = new String[5];
         String atributo,linea;
         linea="K";

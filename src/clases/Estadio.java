@@ -11,22 +11,22 @@ package clases;
 public class Estadio {
     
     //Atributos
-    private String numero;
+    private int numero;
     private String nombre;
     private String ciudad;
-    private String capacidad;
+    private int capacidad;
     private String mundial;
 
     //constructores
-    public Estadio(String num) {
+    public Estadio(int num) {
         this.numero = num;
         this.nombre = "";
         this.ciudad = "";
-        this.capacidad = "";
+        this.capacidad = 0;
         this.mundial = "";
     }
 
-    public Estadio(String num, String nom, String ciu, String capa, String anioM) {
+    public Estadio(int num, String nom, String ciu, int capa, String anioM) {
         this.numero = num;
         this.nombre = nom;
         this.ciudad = ciu;
@@ -35,7 +35,7 @@ public class Estadio {
     }
 
     //observadores
-    public String getNumero() {
+    public int getNumero() {
         return this.numero;
     }
 
@@ -47,7 +47,7 @@ public class Estadio {
         return this.ciudad;
     }
 
-    public String getCapacidad() {
+    public int getCapacidad() {
         return this.capacidad;
     }
 
