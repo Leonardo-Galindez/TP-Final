@@ -57,6 +57,7 @@ public class Archivo {
             posIni = posEnd + 1;
             i++;
         }
+        //ERROR
         //Solo muestra hasta el 25
 
     }
