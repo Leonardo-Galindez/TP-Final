@@ -59,7 +59,7 @@ public class Archivo {
         }
         //ERROR
         //Solo muestra hasta el 25
-
+        System.out.println("hola mundo");
     }
 
     public static void CargarEstadio(Estadio Estadios[], String linea) {//le asigno los atributos al estadio
