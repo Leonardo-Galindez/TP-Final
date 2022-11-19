@@ -17,58 +17,69 @@ import java.io.IOException;
 
 public class Archivo {
 
-    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\txt\\estadiosMundiales.txt";
+    static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\txt\\estadiosMundiales.txt";//cambio de ruta
 
     public static void main(String[] args) {
 
         Estadio Estadios[] = new Estadio[100];
-        leerTxt(direccion,Estadios);
+        leerTxt(direccion, Estadios);
+        MostrarEstadios(Estadios);
     }
 
-    public static void leerTxt(String direccion,Estadio Estadios[]) {//direccion del archivo txt
-        String Atributos[] = new String[5]; 
+    public static void leerTxt(String direccion, Estadio Estadios[]) {//direccion del archivo txt
         try {
+            String Atributos[] = new String[5];
             BufferedReader bf = new BufferedReader(new FileReader(direccion));
             String linea;
             while ((linea = bf.readLine()) != null) {//repite mientras bfRead tiene datos
-                Atributos=ObtenerAtributos(linea);
-                CargarEstadio(Estadios,Atributos);
+
+                CargarEstadio(Estadios,linea);
+
             }
-        }  catch (FileNotFoundException ex) {
+        } catch (FileNotFoundException ex) {
             System.err.println(ex.getMessage() + "\nSignifica que el archivo del "
                     + "que queriamos leer no existe.");
-        }catch (IOException ex) {
+        } catch (IOException ex) {
             System.err.println("Error leyendo o escribiendo en algun archivo.");
         }
 
     }
 
-    public static String[] ObtenerAtributos(String linea) {//separao la linea en atributos y lo guardo en un arreglo
-        String Atributos[] = new String[5];
+    public static void ObtenerAtributos(String linea,String Atributos[]) {//separao la linea en atributos y lo guardo en un arreglo
+        
         String atributo;
-        int i = 0, posIni=0,posEnd;
+        int i = 0, posIni = 0, posEnd;
         //int numero,capacidad;
         while (i < Atributos.length) {
             posEnd = linea.indexOf("|", posIni);
             atributo = linea.substring(posIni, posEnd);
             Atributos[i] = atributo;
-            posIni = posEnd+1;
+            posIni = posEnd + 1;
             i++;
         }
-        return Atributos;
+        //Solo muestra hasta el 25
 
     }
-    public static void CargarEstadio(Estadio Estadios[],String Atributos[] ){//le asigno los atributos al estadio
-        for(int i=0;i<Estadios.length;i++){
-            Estadio nuevoEstadio= new Estadio(Atributos[0]);
-            Estadios[i]=nuevoEstadio;
-            Estadios[i].setNombre(Atributos[1]);
-            Estadios[i].setCiudad(Atributos[2]);
-            Estadios[i].setCapacidad(Atributos[3]);
-            Estadios[i].setMundial(Atributos[4]);
+
+    public static void CargarEstadio(Estadio Estadios[], String linea) {//le asigno los atributos al estadio
+        String Atributos[] = new String[5];
+        for (int j = 0; j < Estadios.length; j++) {
+            ObtenerAtributos(linea,Atributos);
+            Estadio nuevoEstadio = new Estadio(Atributos[0]);
+            Estadios[j] = nuevoEstadio;
+            Estadios[j].setNombre(Atributos[1]);
+            Estadios[j].setCiudad(Atributos[2]);
+            Estadios[j].setCapacidad(Atributos[3]);
+            Estadios[j].setMundial(Atributos[4]);
         }
-      
-        
-    }
 
+    }
+    
+    public static void MostrarEstadios(Estadio Estadios[]){
+        for(int i=0;i<Estadios.length;i++){
+            System.out.println(Estadios[i].toString());
+        }
+    }
 }
+
+

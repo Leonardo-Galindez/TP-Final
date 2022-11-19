@@ -15,7 +15,7 @@ public class PruebasTrycatch {
     public static void main(String[] args) {
         String Atributos[] = new String[5];
         String atributo,linea;
-
+        linea="K";
         int i = 0, posIni=0,posEnd;
         //int numero,capacidad;
         while (i < Atributos.length) {
