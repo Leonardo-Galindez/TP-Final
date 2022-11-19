@@ -23,7 +23,7 @@ public class Archivo {
 
         Estadio Estadios[] = new Estadio[100];
         leerTxt(direccion, Estadios);
-        MostrarEstadios(Estadios);
+        //MostrarEstadios(Estadios);
     }
 
     public static void leerTxt(String direccion, Estadio Estadios[]) {//direccion del archivo txt
@@ -76,11 +76,12 @@ public class Archivo {
 
     }
     
-    public static void MostrarEstadios(Estadio Estadios[]){
+    //mostrar los estadios
+    /*public static void MostrarEstadios(Estadio Estadios[]){
         for(int i=0;i<Estadios.length;i++){
             System.out.println(Estadios[i].toString());
         }
-    }
+    }*/
 }
 
 
