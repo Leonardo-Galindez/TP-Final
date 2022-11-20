@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package clases;
+package Clase;
 
 /**
  *
@@ -81,8 +81,8 @@ public class Estadio {
                 + " \nMundial:" + mundial;
     }
     
-    public void CompareTo(Estadio nuevoEstadio){
-       
+    public int CompareTo(Estadio nuevoEstadio){
+       return this.ciudad.compareTo(nuevoEstadio.ciudad);
     }
     
     

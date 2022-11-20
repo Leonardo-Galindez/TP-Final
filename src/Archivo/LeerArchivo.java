@@ -2,30 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package LeerArchivo;
+package Archivo;
 
 /**
  *
  * @author galin
  */
 //import java.io.*
-import clases.Estadio;
+import Clase.Estadio;
 import java.io.BufferedReader;//sierve para leer el archivo
 import java.io.FileNotFoundException;// se usa en el primer catch?????
 import java.io.FileReader;// se usa en el primer catch????
 import java.io.IOException;// se usa en el segundo catch
 
-public class Archivo {
-
-    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
-// ruta del archivo
-
-    public static void main(String[] args) {
-
-        Estadio Estadios[] = new Estadio[100];
-        leerTxt(direccion, Estadios);//metodo para leer el archivo
-        MostrarEstadios(Estadios);
-    }
+public class LeerArchivo {
 
     public static void leerTxt(String direccion, Estadio Estadios[]) {//direccion del archivo txt
         try {
@@ -36,8 +26,7 @@ public class Archivo {
             while ((linea = bf.readLine()) != null) {//repite mientras bfRead tiene datos
                 ObtenerAtributos(linea, Atributos);//obtenemos los atributos separados en un arreglo
                 CargarEstadio(Estadios, Atributos, j);//mandamos el arreglo atributos para cargarlo en el arreglo de los estadios
-                j++;
-               
+                j++;//j es la variable iteradora que la usamos en la cargar del estadio
             }
             /*FileNotFoundException*/
         } catch (FileNotFoundException ex) {//que exception poner aca
@@ -48,9 +37,7 @@ public class Archivo {
             System.err.println("Error leyendo o escribiendo en algun archivo.");
         }
     }
-
     public static void ObtenerAtributos(String linea, String Atributos[]) {//separao la linea en atributos y lo guardo en un arreglo
-
         String atributo;
         int i = 0, posIni = 0, posEnd;
         //int numero,capacidad;
@@ -63,14 +50,10 @@ public class Archivo {
         }
         //ERROR
         //Solo muestra hasta el 25
-
     }
-
     public static void CargarEstadio(Estadio Estadios[], String Atributos[], int j) {//le asigno los atributos al estadio
-
         String nombre, ciudad, mundial;
         int numero, capacidad;
-
         numero = Integer.parseInt(Atributos[0]);//convertimos string a int
         nombre = Atributos[1].trim();
         ciudad = Atributos[2].trim();
@@ -79,9 +62,7 @@ public class Archivo {
 
         Estadio nuevoEstadio = new Estadio(numero, nombre, ciudad, capacidad, mundial);
         Estadios[j] = nuevoEstadio;
-
     }
-
     //mostrar los estadios
     public static void MostrarEstadios(Estadio Estadios[]) {
         for (int i = 0; i <Estadios.length; i++) {//hasta 25 porque con 100 sale error
