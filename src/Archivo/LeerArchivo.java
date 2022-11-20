@@ -48,8 +48,6 @@ public class LeerArchivo {
             posIni = posEnd + 1;
             i++;
         }
-        //ERROR
-        //Solo muestra hasta el 25
     }
     public static void CargarEstadio(Estadio Estadios[], String Atributos[], int j) {//le asigno los atributos al estadio
         String nombre, ciudad, mundial;

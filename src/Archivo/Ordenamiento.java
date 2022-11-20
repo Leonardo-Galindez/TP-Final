@@ -24,6 +24,9 @@ public class Ordenamiento {
         Estadio auxEstadio = new Estadio(0);
         auxEstadio = Estadios[i];
         j = i - 1;
+        if(Estadios[j].CompareTo(auxEstadio) == 0){
+            
+        }
         while (j > 0 && Estadios[j].CompareTo(auxEstadio) > 1) {
             Estadios[j + 1] = Estadios[j];
             j--;

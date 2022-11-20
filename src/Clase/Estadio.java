@@ -9,7 +9,7 @@ package Clase;
  * @author galin
  */
 public class Estadio {
-    
+
     //Atributos
     private int numero;
     private String nombre;
@@ -74,21 +74,29 @@ public class Estadio {
 
     //mostradores
     public String toString() {
-        return "Numero: " + numero 
+        return "Numero: " + numero
                 + " \nNombre:" + nombre
                 + " \nCiudad:" + ciudad
                 + " \nCapacidad:" + capacidad
                 + " \nMundial:" + mundial;
     }
-    
-    public int CompareTo(Estadio nuevoEstadio){
-       return this.ciudad.compareTo(nuevoEstadio.ciudad);
+
+    public int CompareTo(Estadio nuevoEstadio) {
+        int num;
+
+        if (this.ciudad.compareTo(nuevoEstadio.ciudad) == 0) {
+    //si la ciudad es igual realiza la comparacion mediante el nombre del estadio
+            num = this.nombre.compareTo(nuevoEstadio.ciudad);
+        } else {
+            num = this.ciudad.compareTo(nuevoEstadio.ciudad);
+        }
+
+        return num;
     }
-    
-    
-    public boolean equals(Estadio nuevoEstadio){
-        return this.numero==nuevoEstadio.numero;
+
+    public boolean equals(Estadio nuevoEstadio) {
+        return this.numero == nuevoEstadio.numero;
     }
-    
+
     //propias del tipo
 }
