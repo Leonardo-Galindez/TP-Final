@@ -5,6 +5,8 @@
 package Archivo;
 
 import Clase.Estadio;
+import Metodos.Abreviatura;
+import Metodos.LetraMayuscula;
 import java.util.Scanner;
 
 /**
@@ -13,11 +15,12 @@ import java.util.Scanner;
  */
 public class main {
 
-    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
+    static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
 
     public static void main(String[] args) {
-        int rta;
+        int rta, numEstadio, pos = 0;
         boolean valor = false;
+        String nomOficial, nomModificado,letra="";
         Scanner sc = new Scanner(System.in);
         Estadio Estadios[] = new Estadio[100];
         LeerArchivo.leerTxt(direccion, Estadios);//metodo para leer el archivo
@@ -25,10 +28,13 @@ public class main {
 
         do {
             System.out.println("");
-            System.out.println("Ingrese Orden de ordenamineto");
-            System.out.println("Ascendentemente------------1");
-            System.out.println("Descendentemente-----------2");
-            System.out.println("Finalizar------------------0");
+            //menu
+            System.out.println("Ordenamiento Ascendentemente por Ciudad--------1");
+            System.out.println("Ordenamiento Descendentemente por Ciudad-------2");
+            System.out.println("Ordenamineto Numero----------------------------3");
+            System.out.println("Abreviatura------------------------------------4");
+            System.out.println("Finalizar--------------------------------------0");
+
             rta = sc.nextInt();
             switch (rta) {
 
@@ -40,6 +46,19 @@ public class main {
                     Ordenamiento.insercionD(Estadios);
                     LeerArchivo.MostrarEstadios(Estadios);
                     break;
+                case 3:
+                    LeerArchivo.MostrarEstadios(Estadios);
+                    break;
+                case 4:
+                    System.out.println("Ingrese numero Estadio");
+                    numEstadio = sc.nextInt();
+                    nomModificado = Abreviatura.abreviatura(Estadios, numEstadio, pos);
+                    nomModificado=LetraMayuscula.Mayuscula(nomModificado);
+                    
+                    System.out.println(Estadios[numEstadio].getNombre());
+                    System.out.println(nomModificado);
+
+                    break;
                 case 0://Finalizar
                     valor = true;
                     break;
@@ -49,7 +68,7 @@ public class main {
             }
 
         } while (!valor);
-        
+
         //LeerArchivo.MostrarEstadios(Estadios);
     }
 }
