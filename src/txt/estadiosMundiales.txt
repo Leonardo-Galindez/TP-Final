@@ -1,5 +1,5 @@
 1|Estadio centenario|Montevideo|90000|Uruguay 1930|=
-2|Estadio gran parque central| Montevideo |20000|Uruguay 1930|=
+2|Estadio gran parque central|Montevideo|20000|Uruguay 1930|=
 3|Estadio pocitos|Montevideo |1000|Uruguay 1930|=
 4|St. Ja000ob Park| Basilea |33400|Suiza 1954|=
 5|Stade des charmilles| ginebra |25000|Suiza 1954|=

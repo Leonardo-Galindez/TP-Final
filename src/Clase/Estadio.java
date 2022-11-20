@@ -81,7 +81,7 @@ public class Estadio {
                 + " \nMundial:" + mundial;
     }
 
-    public int CompareTo(Estadio nuevoEstadio) {
+    public int CompareTo(Estadio nuevoEstadio) {//consulta sobre este metodo?????
         int num;
 
         if (this.ciudad.compareTo(nuevoEstadio.ciudad) == 0) {
@@ -90,7 +90,7 @@ public class Estadio {
         } else {
             num = this.ciudad.compareTo(nuevoEstadio.ciudad);
         }
-
+      
         return num;
     }
 
