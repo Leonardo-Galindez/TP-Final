@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class main {
 
-    static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
+    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
 
     public static void main(String[] args) {
         int rta, numEstadio, pos = 0;
@@ -32,7 +32,7 @@ public class main {
             System.out.println("Ordenamiento Ascendentemente por Ciudad--------1");
             System.out.println("Ordenamiento Descendentemente por Ciudad-------2");
             System.out.println("Ordenamineto Numero----------------------------3");
-            System.out.println("Abreviatura------------------------------------4");
+            //System.out.println("Abreviatura------------------------------------4");
             System.out.println("Finalizar--------------------------------------0");
 
             rta = sc.nextInt();
