@@ -15,12 +15,12 @@ import java.util.Scanner;
  */
 public class main {
 
-    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
+    static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
 
     public static void main(String[] args) {
-        int rta, numEstadio, pos = 0;
+        int rta, numEstadio, pos = 0, posEstadio;
         boolean valor = false;
-        String nomOficial, nomModificado,letra="";
+        String nomOficial, nomModificado, letra = "";
         Scanner sc = new Scanner(System.in);
         Estadio Estadios[] = new Estadio[100];
         LeerArchivo.leerTxt(direccion, Estadios);//metodo para leer el archivo
@@ -31,8 +31,7 @@ public class main {
             //menu
             System.out.println("Ordenamiento Ascendentemente por Ciudad--------1");
             System.out.println("Ordenamiento Descendentemente por Ciudad-------2");
-            System.out.println("Ordenamineto Numero----------------------------3");
-            //System.out.println("Abreviatura------------------------------------4");
+            System.out.println("Abreviatura------------------------------------3");
             System.out.println("Finalizar--------------------------------------0");
 
             rta = sc.nextInt();
@@ -46,16 +45,16 @@ public class main {
                     Ordenamiento.insercionD(Estadios);
                     LeerArchivo.MostrarEstadios(Estadios);
                     break;
-                case 3:
-                    LeerArchivo.MostrarEstadios(Estadios);
-                    break;
-                case 4:
+
+                case 3://Abreviatura
                     System.out.println("Ingrese numero Estadio");
                     numEstadio = sc.nextInt();
-                    nomModificado = Abreviatura.abreviatura(Estadios, numEstadio, pos);
-                    nomModificado=LetraMayuscula.Mayuscula(nomModificado);
-                    
-                    System.out.println(Estadios[numEstadio].getNombre());
+
+                    posEstadio = Abreviatura.posEstadio(Estadios, numEstadio, pos);
+                    nomModificado = Abreviatura.abreviatura(Estadios, posEstadio, pos);
+                    nomModificado = LetraMayuscula.Mayuscula(nomModificado);
+
+                    System.out.println(Estadios[posEstadio].getNombre());
                     System.out.println(nomModificado);
 
                     break;
@@ -69,6 +68,6 @@ public class main {
 
         } while (!valor);
 
-        //LeerArchivo.MostrarEstadios(Estadios);
+       
     }
 }
