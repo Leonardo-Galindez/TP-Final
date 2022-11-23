@@ -4,6 +4,7 @@
  */
 package Archivo;
 
+import Metodos.Ordenamiento;//llamada a los metodos de ordenamiento
 import Clase.Estadio;
 import Metodos.Abreviatura;
 import Metodos.LetraMayuscula;
@@ -18,9 +19,8 @@ public class main {
     static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
 
     public static void main(String[] args) {
-        int rta, numEstadio, pos = 0, posEstadio;
+        int rta;
         boolean valor = false;
-        String nomOficial, nomModificado, letra = "";
         Scanner sc = new Scanner(System.in);
         Estadio Estadios[] = new Estadio[100];
         LeerArchivo.leerTxt(direccion, Estadios);//metodo para leer el archivo
@@ -29,21 +29,47 @@ public class main {
         do {
             System.out.println("");
             //menu
-            System.out.println("Ordenamiento Ascendentemente por Ciudad--------1");
-            System.out.println("Ordenamiento Descendentemente por Ciudad-------2");
+            System.out.println("Ordenamiento quicksort por Ciudad--------------1");
+            System.out.println("Ordenamiento insercion por Ciudad--------------2");
             System.out.println("Abreviatura------------------------------------3");
             System.out.println("Finalizar--------------------------------------0");
 
             rta = sc.nextInt();
-            switch (rta) {
+            valor=Menu(rta,Estadios);
 
-                case 1://Descendentemente
-                    Ordenamiento.insercionA(Estadios);
-                    LeerArchivo.MostrarEstadios(Estadios);
+        } while (!valor);
+
+    }
+    
+    public static boolean Menu(int rta,Estadio Estadios[]){
+        int numEstadio, pos = 0, posEstadio, rtaSub;
+        boolean valor = false;
+        String nomModificado;
+        
+        Scanner sc = new Scanner(System.in);
+        switch (rta) {
+
+                case 1://quicksort
+
                     break;
-                case 2://Ascendentemente
-                    Ordenamiento.insercionD(Estadios);
-                    LeerArchivo.MostrarEstadios(Estadios);
+                case 2://insercion
+                    System.out.println("Ingrese orden ");
+                    System.out.println("Ascendente-------1");
+                    System.out.println("Descendente------2");
+
+                    rtaSub = sc.nextInt();
+                    if (rtaSub == 1) {
+                        Ordenamiento.insercionA(Estadios);
+                        LeerArchivo.MostrarEstadios(Estadios);
+                    } else {
+                        if (rtaSub == 2) {
+                            Ordenamiento.insercionD(Estadios);
+                            LeerArchivo.MostrarEstadios(Estadios);
+                        } else {
+                            System.out.println("Error");
+                        }
+                    }
+
                     break;
 
                 case 3://Abreviatura
@@ -65,9 +91,7 @@ public class main {
                     System.out.println("Error");
                     break;
             }
-
-        } while (!valor);
-
-       
+        
+        return valor;
     }
 }
