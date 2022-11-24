@@ -8,7 +8,7 @@
  * @author galin
  */
 import java.util.Scanner;
-
+//cambios
 public class prueba {
 
     public static void main(String[] args) {
