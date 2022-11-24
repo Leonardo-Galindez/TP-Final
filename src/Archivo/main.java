@@ -15,12 +15,12 @@ import java.util.Scanner;
  * @author galin
  */
 public class main {
-
+    //metodos estaticos explicacion
     static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
 
     public static void main(String[] args) {
         int rta;
-        boolean valor = false;
+        boolean valor = false;//
         Scanner sc = new Scanner(System.in);
         Estadio Estadios[] = new Estadio[100];
         LeerArchivo.leerTxt(direccion, Estadios);//metodo para leer el archivo

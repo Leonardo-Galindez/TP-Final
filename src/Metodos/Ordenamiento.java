@@ -25,14 +25,14 @@ public class Ordenamiento {
         Estadio auxEstadio = new Estadio(0);
         auxEstadio = Estadios[i];
         j = i - 1;
-        while (j > 0 && Estadios[j].CompareTo(auxEstadio) > 1) {
+        while (j >= 0 && Estadios[j].CompareTo(auxEstadio) > 0) {
             Estadios[j + 1] = Estadios[j];
             j--;
         }
         Estadios[j + 1] = auxEstadio;
     }
 //Descendentemente
-
+//hacer prebas y decir veces mas rapido
     public static void insercionD(Estadio Estadios[]) {
         for (int i = 1; i < Estadios.length; i++) {
             reubicarD(Estadios, i);
@@ -44,7 +44,7 @@ public class Ordenamiento {
         Estadio auxEstadio = new Estadio(0);
         auxEstadio = Estadios[i];
         j = i - 1;
-        while (j > 0 && Estadios[j].CompareTo(auxEstadio) < 1) {
+        while (j >= 0 && Estadios[j].CompareTo(auxEstadio) < 0) {
             Estadios[j + 1] = Estadios[j];
             j--;
         }

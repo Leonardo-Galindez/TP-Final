@@ -16,11 +16,14 @@ import java.io.FileReader;// se usa en el primer catch????
 import java.io.IOException;// se usa en el segundo catch
 
 public class LeerArchivo {
+    //cantidad de lineas del texto
+    //arreglo sobre sobredimensionado
+    //restar dividir
 
     public static void leerTxt(String direccion, Estadio Estadios[]) {//direccion del archivo txt
         try {
-            int j = 0;
-            String Atributos[] = new String[5];
+            int j = 0, pos = 5;//implementar split
+            String Atributos[] = new String[pos];
             BufferedReader bf = new BufferedReader(new FileReader(direccion));
             String linea;
             while ((linea = bf.readLine()) != null) {//repite mientras bfRead tiene datos
@@ -28,15 +31,18 @@ public class LeerArchivo {
                 CargarEstadio(Estadios, Atributos, j);//mandamos el arreglo atributos para cargarlo en el arreglo de los estadios
                 j++;//j es la variable iteradora que la usamos en la cargar del estadio
             }
+            bf.close();
             /*FileNotFoundException*/
         } catch (FileNotFoundException ex) {//que exception poner aca
             System.err.println(ex.getMessage() + "\nSignifica que el archivo del "
                     + "que queriamos leer no existe.");
-        }
-        catch (IOException ex) {//para que es este catch
+        } catch (IOException ex) {//para que es este catch
             System.err.println("Error leyendo o escribiendo en algun archivo.");
         }
-    }
+
+        //exception
+    }//split
+
     public static void ObtenerAtributos(String linea, String Atributos[]) {//separao la linea en atributos y lo guardo en un arreglo
         String atributo;
         int i = 0, posIni = 0, posEnd;
@@ -49,6 +55,7 @@ public class LeerArchivo {
             i++;
         }
     }
+
     public static void CargarEstadio(Estadio Estadios[], String Atributos[], int j) {//le asigno los atributos al estadio
         String nombre, ciudad, mundial;
         int numero, capacidad;
@@ -61,9 +68,10 @@ public class LeerArchivo {
         Estadio nuevoEstadio = new Estadio(numero, nombre, ciudad, capacidad, mundial);
         Estadios[j] = nuevoEstadio;
     }
+
     //mostrar los estadios
     public static void MostrarEstadios(Estadio Estadios[]) {
-        for (int i = 0; i <Estadios.length; i++) {//hasta 25 porque con 100 sale error
+        for (int i = 0; i < Estadios.length; i++) {//hasta 25 porque con 100 sale error
             System.out.println(Estadios[i].toString());
             System.out.println("");
         }
