@@ -51,6 +51,7 @@ public class prueba {
             quicksort(A, j + 1, der);          // ordenamos subarray derecho
         }
     }
+    
 
     public static void MostrarArray(int A[]) {
         for (int i = 0; i < A.length; i++) {

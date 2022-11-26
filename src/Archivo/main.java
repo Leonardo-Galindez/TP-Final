@@ -50,7 +50,22 @@ public class main {
         switch (rta) {
 
             case 1://quicksort
+                System.out.println("Ingrese orden ");
+                System.out.println("Ascendente-------1");
+                System.out.println("Descendente------2");
 
+                rtaSub = sc.nextInt();
+                if (rtaSub == 1) {
+                    Ordenamiento.quicksortA(Estadios, 0, cantEstadios - 1);
+                    LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
+                } else {
+                    if (rtaSub == 2) {
+                        Ordenamiento.quicksortD(Estadios, 0, cantEstadios - 1);
+                        LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
+                    } else {
+                        System.out.println("Error");
+                    }
+                }
                 break;
             case 2://insercion
                 System.out.println("Ingrese orden ");
