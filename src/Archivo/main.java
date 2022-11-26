@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class main {
 
     //metodos estaticos explicacion
-    static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
+    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\Archivo\\txt\\estadiosMundiales.txt";//variable estica porque??
 
     public static void main(String[] args) {
         int rta, cantEstadios;
