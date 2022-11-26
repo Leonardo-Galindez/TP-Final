@@ -52,7 +52,7 @@ public class Ordenamiento {
         Estadios[j + 1] = auxEstadio;
     }
 
-//quicksort--------------------------------------------------
+//quicksort--------------------------------------------------Hacer traza del quicksort°°°°°°°°°°°°!!!!!!
    // Ascendentemente
     public static void quicksortA(Estadio Estadios[], int izq, int der) {
         Estadio pivoteEstadio = new Estadio(0);
