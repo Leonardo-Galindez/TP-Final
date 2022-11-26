@@ -12,13 +12,22 @@ import java.util.Scanner;
 public class prueba {
 
     public static void main(String[] args) {
-        int A[] = {4, 1, 8, 2, 10, 0};
+        
+        double Itiempo=System.nanoTime();
+        System.out.println(Itiempo);
+        double Ftiempo=System.nanoTime();
+        System.out.println(Ftiempo);
+        double T=Ftiempo-Itiempo;
+        System.out.println(T);
+        /*int A[] = {4, 1, 8, 2, 10, 0};
         int izq = 0, der = A.length - 1;
         MostrarArray(A);
         quicksort(A, izq, der);
         System.out.println("");
-        MostrarArray(A);
+        MostrarArray(A);*/
     }
+    
+   
 
     public static void quicksort(int A[], int izq, int der) {
 

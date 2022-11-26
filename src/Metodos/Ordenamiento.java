@@ -15,9 +15,11 @@ public class Ordenamiento {
 //Insercion--------------------------------------------------
 //Ascendentemente
     public static void insercionA(Estadio Estadios[], int cantEstadios) {
+        
         for (int i = 1; i < cantEstadios; i++) {
             reubicarA(Estadios, i);
         }
+        
     }
 
     public static void reubicarA(Estadio Estadios[], int i) {

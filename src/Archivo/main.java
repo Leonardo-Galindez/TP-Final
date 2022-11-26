@@ -56,12 +56,18 @@ public class main {
 
                 rtaSub = sc.nextInt();
                 if (rtaSub == 1) {
+
                     Ordenamiento.quicksortA(Estadios, 0, cantEstadios - 1);
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
+
                 } else {
                     if (rtaSub == 2) {
+                        double tiempoI = System.nanoTime();
                         Ordenamiento.quicksortD(Estadios, 0, cantEstadios - 1);
                         LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
+                        double tiempoF = System.nanoTime();
+                        double tiempoTotal = tiempoF - tiempoI;
+                        System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                     } else {
                         System.out.println("Error");
                     }
@@ -74,12 +80,20 @@ public class main {
 
                 rtaSub = sc.nextInt();
                 if (rtaSub == 1) {
+                    double tiempoI = System.nanoTime();//tiempo inicial
                     Ordenamiento.insercionA(Estadios, cantEstadios);
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
+                    double tiempoF = System.nanoTime();//tiempo final
+                    double tiempoTotal = tiempoF - tiempoI;//tiempo total
+                    System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                 } else {
                     if (rtaSub == 2) {
+                        double tiempoI = System.nanoTime();
                         Ordenamiento.insercionD(Estadios, cantEstadios);
                         LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
+                        double tiempoF = System.nanoTime();
+                        double tiempoTotal = tiempoF - tiempoI;
+                        System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                     } else {
                         System.out.println("Error");
                     }
