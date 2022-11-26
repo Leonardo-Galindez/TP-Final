@@ -14,8 +14,8 @@ public class Ordenamiento {
 
 //Insercion--------------------------------------------------
 //Ascendentemente
-    public static void insercionA(Estadio Estadios[]) {
-        for (int i = 1; i < Estadios.length; i++) {
+    public static void insercionA(Estadio Estadios[], int cantEstadios) {
+        for (int i = 1; i < cantEstadios; i++) {
             reubicarA(Estadios, i);
         }
     }
@@ -32,9 +32,10 @@ public class Ordenamiento {
         Estadios[j + 1] = auxEstadio;
     }
 //Descendentemente
-//hacer prebas y decir veces mas rapido
-    public static void insercionD(Estadio Estadios[]) {
-        for (int i = 1; i < Estadios.length; i++) {
+//hacer pruebas y decir veces mas rapido
+
+    public static void insercionD(Estadio Estadios[], int cantEstadios) {
+        for (int i = 1; i < cantEstadios; i++) {
             reubicarD(Estadios, i);
         }
     }
@@ -52,8 +53,7 @@ public class Ordenamiento {
     }
 
 //quicksort--------------------------------------------------
-    
-    public static void quicksort(){
-        
+    public static void quicksort() {
+
     }
 }

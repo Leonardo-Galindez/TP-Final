@@ -39,4 +39,20 @@ public class Abreviatura {
         return nomModificado;
     }
 
+    public static String Mayuscula(String cadena) {
+        String nuevaCadena = "";
+        char letra;
+        for (int i = 0; i < cadena.length(); i++) {
+            if (i == 0) {
+                letra = cadena.charAt(i);
+                nuevaCadena = "" + letra;
+                nuevaCadena = nuevaCadena.toUpperCase();
+            } else {
+                nuevaCadena = nuevaCadena + cadena.charAt(i);
+            }
+
+        }
+        return nuevaCadena;
+    }
+
 }

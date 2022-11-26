@@ -7,7 +7,6 @@ package Archivo;
 import Metodos.Ordenamiento;//llamada a los metodos de ordenamiento
 import Clase.Estadio;
 import Metodos.Abreviatura;
-import Metodos.LetraMayuscula;
 import java.util.Scanner;
 
 /**
@@ -15,15 +14,16 @@ import java.util.Scanner;
  * @author galin
  */
 public class main {
+
     //metodos estaticos explicacion
     static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\txt\\estadiosMundiales.txt";//variable estica porque??
 
     public static void main(String[] args) {
-        int rta;
-        boolean valor = false;//
+        int rta, cantEstadios;
+        boolean valor = false;
         Scanner sc = new Scanner(System.in);
-        Estadio Estadios[] = new Estadio[100];
-        LeerArchivo.leerTxt(direccion, Estadios);//metodo para leer el archivo
+        Estadio Estadios[] = new Estadio[1000000];
+        cantEstadios = LeerArchivo.leerTxt(direccion, Estadios, 1);//metodo para leer el archivo
         //LeerArchivo.MostrarEstadios(Estadios);
 
         do {
@@ -35,63 +35,63 @@ public class main {
             System.out.println("Finalizar--------------------------------------0");
 
             rta = sc.nextInt();
-            valor=Menu(rta,Estadios);
+            valor = Menu(rta, Estadios, cantEstadios);
 
         } while (!valor);
 
     }
-    
-    public static boolean Menu(int rta,Estadio Estadios[]){
+
+    public static boolean Menu(int rta, Estadio Estadios[], int cantEstadios) {
         int numEstadio, pos = 0, posEstadio, rtaSub;
         boolean valor = false;
         String nomModificado;
-        
+
         Scanner sc = new Scanner(System.in);
         switch (rta) {
 
-                case 1://quicksort
+            case 1://quicksort
 
-                    break;
-                case 2://insercion
-                    System.out.println("Ingrese orden ");
-                    System.out.println("Ascendente-------1");
-                    System.out.println("Descendente------2");
+                break;
+            case 2://insercion
+                System.out.println("Ingrese orden ");
+                System.out.println("Ascendente-------1");
+                System.out.println("Descendente------2");
 
-                    rtaSub = sc.nextInt();
-                    if (rtaSub == 1) {
-                        Ordenamiento.insercionA(Estadios);
-                        LeerArchivo.MostrarEstadios(Estadios);
+                rtaSub = sc.nextInt();
+                if (rtaSub == 1) {
+                    Ordenamiento.insercionA(Estadios, cantEstadios);
+                    LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
+                } else {
+                    if (rtaSub == 2) {
+                        Ordenamiento.insercionD(Estadios, cantEstadios);
+                        LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                     } else {
-                        if (rtaSub == 2) {
-                            Ordenamiento.insercionD(Estadios);
-                            LeerArchivo.MostrarEstadios(Estadios);
-                        } else {
-                            System.out.println("Error");
-                        }
+                        System.out.println("Error");
                     }
+                }
 
-                    break;
+                break;
 
-                case 3://Abreviatura
-                    System.out.println("Ingrese numero Estadio");
-                    numEstadio = sc.nextInt();
+            case 3://Abreviatura
+                System.out.println("Ingrese numero Estadio");
+                numEstadio = sc.nextInt();
 
-                    posEstadio = Abreviatura.posEstadio(Estadios, numEstadio, pos);
-                    nomModificado = Abreviatura.abreviatura(Estadios, posEstadio, pos);
-                    nomModificado = LetraMayuscula.Mayuscula(nomModificado);
+                posEstadio = Abreviatura.posEstadio(Estadios, numEstadio, pos);
+                nomModificado = Abreviatura.abreviatura(Estadios, posEstadio, pos);
+                nomModificado = Abreviatura.Mayuscula(nomModificado);
 
-                    System.out.println(Estadios[posEstadio].getNombre());
-                    System.out.println(nomModificado);
+                System.out.println(Estadios[posEstadio].getNombre());
+                System.out.println(nomModificado);
 
-                    break;
-                case 0://Finalizar
-                    valor = true;
-                    break;
-                default:
-                    System.out.println("Error");
-                    break;
-            }
-        
+                break;
+            case 0://Finalizar
+                valor = true;
+                break;
+            default:
+                System.out.println("Error");
+                break;
+        }
+
         return valor;
     }
 }

@@ -85,12 +85,12 @@ public class Estadio {
         int num;
 
         if (this.ciudad.compareTo(nuevoEstadio.ciudad) == 0) {
-    //si la ciudad es igual realiza la comparacion mediante el nombre del estadio
+            //si la ciudad es igual realiza la comparacion mediante el nombre del estadio
             num = this.nombre.compareTo(nuevoEstadio.nombre);
         } else {
             num = this.ciudad.compareTo(nuevoEstadio.ciudad);
         }
-      
+
         return num;
     }
 
