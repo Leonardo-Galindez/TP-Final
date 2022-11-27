@@ -21,7 +21,8 @@ public class Abreviatura {
         nomOficial = Estadios[numEstadio].getNombre().toLowerCase();
         nomOficial = nomOficial.trim();
         if (pos < nomOficial.length()) {
-            if (nomOficial.charAt(pos) == 'a' || nomOficial.charAt(pos) == 'e' || nomOficial.charAt(pos) == 'i' || nomOficial.charAt(pos) == 'o' || nomOficial.charAt(pos) == 'u') {
+            if (nomOficial.charAt(pos) == 'a' || nomOficial.charAt(pos) == 'e' || nomOficial.charAt(pos) == 'i' || 
+                    nomOficial.charAt(pos) == 'o' || nomOficial.charAt(pos) == 'u') {
                 nomModificado = abreviatura(Estadios, numEstadio, pos + 1);
             } else {
                 nomModificado = nomModificado + nomOficial.charAt(pos) + abreviatura(Estadios, numEstadio, pos + 1);
