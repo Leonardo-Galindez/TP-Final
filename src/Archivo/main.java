@@ -56,6 +56,7 @@ public class main {
 
                 rtaSub = sc.nextInt();
                 if (rtaSub == 1) {
+                    //restar dividir
                     double tiempoI = System.nanoTime();
                     Ordenamiento.quicksortA(Estadios, 0, cantEstadios - 1);
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
