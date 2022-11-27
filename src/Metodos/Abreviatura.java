@@ -12,13 +12,13 @@ import Clase.Estadio;
  */
 public class Abreviatura {
 
-    public static int posEstadio(Estadio Estadios[], int numEstadio, int i) {
+    public static int posEstadio(Estadio Estadios[], int numEstadio, int i,int cantEstadios) {
         int pos = 0;
-        if (i < Estadios.length) {
+        if (i < cantEstadios) {
             if (numEstadio == Estadios[i].getNumero()) {
                 pos = i;
             } else {
-                pos = posEstadio(Estadios, numEstadio, i + 1);
+                pos = posEstadio(Estadios, numEstadio, i + 1,cantEstadios);
             }
         }
 

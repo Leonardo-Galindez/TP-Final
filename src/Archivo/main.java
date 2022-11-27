@@ -61,7 +61,7 @@ public class main {
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                     double tiempoF = System.nanoTime();
                     double tiempoTotal = tiempoF - tiempoI;
-                    tiempoTotal=tiempoTotal/10000000;
+                    tiempoTotal = tiempoTotal / 10000000;
                     System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
 
                 } else {
@@ -71,7 +71,7 @@ public class main {
                         LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                         double tiempoF = System.nanoTime();
                         double tiempoTotal = tiempoF - tiempoI;
-                        tiempoTotal=tiempoTotal/10000000;
+                        tiempoTotal = tiempoTotal / 10000000;
                         System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                     } else {
                         System.out.println("Error");
@@ -90,7 +90,7 @@ public class main {
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                     double tiempoF = System.nanoTime();//tiempo final
                     double tiempoTotal = tiempoF - tiempoI;//tiempo total
-                    tiempoTotal=tiempoTotal/10000000;
+                    tiempoTotal = tiempoTotal / 10000000;
                     System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                 } else {
                     if (rtaSub == 2) {
@@ -99,7 +99,7 @@ public class main {
                         LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                         double tiempoF = System.nanoTime();
                         double tiempoTotal = tiempoF - tiempoI;
-                        tiempoTotal=tiempoTotal/10000000;
+                        tiempoTotal = tiempoTotal / 10000000;
                         System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                     } else {
                         System.out.println("Error");
@@ -109,10 +109,13 @@ public class main {
                 break;
 
             case 3://Abreviatura
-                System.out.println("Ingrese numero Estadio");
-                numEstadio = sc.nextInt();
 
-                posEstadio = Abreviatura.posEstadio(Estadios, numEstadio, pos);
+                do {
+                    System.out.println("Ingrese numero Estadio");
+                    numEstadio = sc.nextInt();
+                } while (numEstadio>=cantEstadios);
+
+                posEstadio = Abreviatura.posEstadio(Estadios, numEstadio, pos,cantEstadios);
                 nomModificado = Abreviatura.abreviatura(Estadios, posEstadio, pos);
                 nomModificado = Abreviatura.Mayuscula(nomModificado);
 
