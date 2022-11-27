@@ -3,28 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Metodos;
-
 import Clase.Estadio;
-
-/**
- *
- * @author galin
- */
 public class Abreviatura {
-
-    public static int posEstadio(Estadio Estadios[], int numEstadio, int i,int cantEstadios) {
+    public static int posEstadio(Estadio Estadios[], int numEstadio, int i, int cantEstadios) {
         int pos = 0;
         if (i < cantEstadios) {
             if (numEstadio == Estadios[i].getNumero()) {
                 pos = i;
             } else {
-                pos = posEstadio(Estadios, numEstadio, i + 1,cantEstadios);
+                pos = posEstadio(Estadios, numEstadio, i + 1, cantEstadios);
             }
         }
-
         return pos;
     }
-
     public static String abreviatura(Estadio Estadios[], int numEstadio, int pos) {
         String nomOficial, nomModificado = "";
         nomOficial = Estadios[numEstadio].getNombre().toLowerCase();
@@ -38,7 +29,6 @@ public class Abreviatura {
         }
         return nomModificado;
     }
-
     public static String Mayuscula(String cadena) {
         String nuevaCadena = "";
         char letra;
@@ -50,9 +40,7 @@ public class Abreviatura {
             } else {
                 nuevaCadena = nuevaCadena + cadena.charAt(i);
             }
-
         }
         return nuevaCadena;
     }
-
 }
