@@ -15,11 +15,11 @@ public class Ordenamiento {
 //Insercion--------------------------------------------------
 //Ascendentemente
     public static void insercionA(Estadio Estadios[], int cantEstadios) {
-        
+
         for (int i = 1; i < cantEstadios; i++) {
             reubicarA(Estadios, i);
         }
-        
+
     }
 
     public static void reubicarA(Estadio Estadios[], int i) {
@@ -55,7 +55,7 @@ public class Ordenamiento {
     }
 
 //quicksort--------------------------------------------------Hacer traza del quicksort°°°°°°°°°°°°!!!!!!
-   // Ascendentemente
+    // Ascendentemente
     public static void quicksortA(Estadio Estadios[], int izq, int der) {
         Estadio pivoteEstadio = new Estadio(0);
         Estadio auxEstadio = new Estadio(0);
@@ -87,6 +87,7 @@ public class Ordenamiento {
             quicksortA(Estadios, j + 1, der);          // ordenamos subarray derecho
         }
     }
+
     //Descendentemente
     public static void quicksortD(Estadio Estadios[], int izq, int der) {
         Estadio pivoteEstadio = new Estadio(0);

@@ -5,8 +5,8 @@
 package Archivo;
 
 import Metodos.Ordenamiento;//llamada a los metodos de ordenamiento
-import Clase.Estadio;
-import Metodos.Abreviatura;
+import Clase.Estadio;//importamos la clase estadio
+import Metodos.Abreviatura;//importamos la clase abreviatura
 import java.util.Scanner;
 
 /**
@@ -56,9 +56,13 @@ public class main {
 
                 rtaSub = sc.nextInt();
                 if (rtaSub == 1) {
-
+                    double tiempoI = System.nanoTime();
                     Ordenamiento.quicksortA(Estadios, 0, cantEstadios - 1);
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
+                    double tiempoF = System.nanoTime();
+                    double tiempoTotal = tiempoF - tiempoI;
+                    tiempoTotal=tiempoTotal/10000000;
+                    System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
 
                 } else {
                     if (rtaSub == 2) {
@@ -67,6 +71,7 @@ public class main {
                         LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                         double tiempoF = System.nanoTime();
                         double tiempoTotal = tiempoF - tiempoI;
+                        tiempoTotal=tiempoTotal/10000000;
                         System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                     } else {
                         System.out.println("Error");
@@ -85,6 +90,7 @@ public class main {
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                     double tiempoF = System.nanoTime();//tiempo final
                     double tiempoTotal = tiempoF - tiempoI;//tiempo total
+                    tiempoTotal=tiempoTotal/10000000;
                     System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                 } else {
                     if (rtaSub == 2) {
@@ -93,6 +99,7 @@ public class main {
                         LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                         double tiempoF = System.nanoTime();
                         double tiempoTotal = tiempoF - tiempoI;
+                        tiempoTotal=tiempoTotal/10000000;
                         System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                     } else {
                         System.out.println("Error");

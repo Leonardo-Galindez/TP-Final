@@ -9,25 +9,24 @@
  */
 import java.util.Scanner;
 //cambios
+
 public class prueba {
 
     public static void main(String[] args) {
-        
-        double Itiempo=System.nanoTime();
+
+        double Itiempo = System.nanoTime();
         System.out.println(Itiempo);
-        double Ftiempo=System.nanoTime();
+        double Ftiempo = System.nanoTime();
         System.out.println(Ftiempo);
-        double T=Ftiempo-Itiempo;
+        double T = Ftiempo - Itiempo;
         System.out.println(T);
-        /*int A[] = {4, 1, 8, 2, 10, 0};
+        int A[] = {4, 8, 1,3,0};
         int izq = 0, der = A.length - 1;
         MostrarArray(A);
         quicksort(A, izq, der);
         System.out.println("");
-        MostrarArray(A);*/
+        MostrarArray(A);
     }
-    
-   
 
     public static void quicksort(int A[], int izq, int der) {
 
@@ -60,11 +59,10 @@ public class prueba {
             quicksort(A, j + 1, der);          // ordenamos subarray derecho
         }
     }
-    
 
     public static void MostrarArray(int A[]) {
         for (int i = 0; i < A.length; i++) {
-            System.out.print(A[i]+"-");
+            System.out.print(A[i] + "-");
         }
     }
 
