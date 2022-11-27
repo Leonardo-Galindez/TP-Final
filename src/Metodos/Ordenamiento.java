@@ -60,8 +60,8 @@ public class Ordenamiento {
         Estadio pivoteEstadio = new Estadio(0);
         Estadio auxEstadio = new Estadio(0);
         pivoteEstadio = Estadios[izq];          // tomamos primer elemento como pivote
-        int i = izq;                            // i realiza la búsqueda de izquierda a derecha
-        int j = der;                            // j realiza la búsqueda de derecha a izquierda
+        int i = izq;                            //i analiza de izquierda a derecha                                               
+        int j = der;                            //j analiza de derecha a izquierda                         
 
         while (i < j) {                         // mientras no se crucen las búsquedas                                   
             while (Estadios[i].CompareTo(pivoteEstadio) <= 0 && i < j) {
@@ -70,19 +70,20 @@ public class Ordenamiento {
             while (Estadios[j].CompareTo(pivoteEstadio) > 0) {
                 j--;                            // busca elemento menor que pivote
             }
-            if (i < j) {                        // si no se han cruzado                      
-                auxEstadio = Estadios[i];                     // los intercambia
+            if (i < j) {                        // si no se han cruzado los elementos                                               
+                auxEstadio = Estadios[i];       // los intercambia           
                 Estadios[i] = Estadios[j];
                 Estadios[j] = auxEstadio;
             }
         }
 
         Estadios[izq] = Estadios[j];                         // se coloca el pivote en su lugar de forma que tendremos                                    
-        Estadios[j] = pivoteEstadio;                         // los menores a su izquierda y los mayores a su derecha
+        Estadios[j] = pivoteEstadio;                         // los menores a su izquierda y los mayores a su derecha 
 
         if (izq < j - 1) {
             quicksortA(Estadios, izq, j - 1);          // ordenamos subarray izquierdo
         }
+        //divide en 2 subarray
         if (j + 1 < der) {
             quicksortA(Estadios, j + 1, der);          // ordenamos subarray derecho
         }
