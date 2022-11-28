@@ -13,8 +13,8 @@ import java.util.Scanner;
  * @author galin
  */
 public class main {
-        
-    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\Archivo\\estadiosMundiales.txt";//variable estica porque??
+    //definimos una variable constante para todas las clases    
+    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\Archivo\\estadiosMundiales.txt";
 
     public static void main(String[] args) {
         int rta, cantEstadios;
@@ -55,6 +55,7 @@ public class main {
                 rtaSub = sc.nextInt();
                 if (rtaSub == 1) {//Ascendiente
                     //Consultar sobre si esta bien aplicado el nanoTime()---------------------------------------
+                    //utilizo long
                     double tiempoI = System.nanoTime();//iniciamos el tiempo
                     Ordenamiento.quicksortA(Estadios, 0, cantEstadios - 1);
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
