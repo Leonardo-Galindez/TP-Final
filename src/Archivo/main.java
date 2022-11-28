@@ -55,24 +55,24 @@ public class main {
                 System.out.println("Descendente------2");
 
                 rtaSub = sc.nextInt();
-                if (rtaSub == 1) {
-                    //restar dividir
+                if (rtaSub == 1) {//Ascendiente
+
                     double tiempoI = System.nanoTime();
                     Ordenamiento.quicksortA(Estadios, 0, cantEstadios - 1);
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                     double tiempoF = System.nanoTime();
                     double tiempoTotal = tiempoF - tiempoI;
-                    tiempoTotal = tiempoTotal / 10000000;
+                    tiempoTotal = tiempoTotal * 0.000000001;
                     System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
 
                 } else {
-                    if (rtaSub == 2) {
+                    if (rtaSub == 2) {//Descendiente
                         double tiempoI = System.nanoTime();
                         Ordenamiento.quicksortD(Estadios, 0, cantEstadios - 1);
                         LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                         double tiempoF = System.nanoTime();
                         double tiempoTotal = tiempoF - tiempoI;
-                        tiempoTotal = tiempoTotal / 10000000;
+                        tiempoTotal = tiempoTotal * 0.000000001;
                         System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                     } else {
                         System.out.println("Error");
@@ -82,25 +82,25 @@ public class main {
             case 2://insercion
                 System.out.println("Ingrese orden ");
                 System.out.println("Ascendente-------1");
-                System.out.println("Descendente------2");
+                System.out.println("Descendiente------2");
 
                 rtaSub = sc.nextInt();
-                if (rtaSub == 1) {
+                if (rtaSub == 1) {//Ascendiente
                     double tiempoI = System.nanoTime();//tiempo inicial
                     Ordenamiento.insercionA(Estadios, cantEstadios);
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                     double tiempoF = System.nanoTime();//tiempo final
                     double tiempoTotal = tiempoF - tiempoI;//tiempo total
-                    tiempoTotal = tiempoTotal / 10000000;
+                    tiempoTotal = tiempoTotal * 0.000000001;
                     System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                 } else {
-                    if (rtaSub == 2) {
+                    if (rtaSub == 2) {//Descendiente
                         double tiempoI = System.nanoTime();
                         Ordenamiento.insercionD(Estadios, cantEstadios);
                         LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
                         double tiempoF = System.nanoTime();
                         double tiempoTotal = tiempoF - tiempoI;
-                        tiempoTotal = tiempoTotal / 10000000;
+                        tiempoTotal = tiempoTotal * 0.000000001;
                         System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                     } else {
                         System.out.println("Error");
@@ -114,9 +114,9 @@ public class main {
                 do {
                     System.out.println("Ingrese numero Estadio");
                     numEstadio = sc.nextInt();
-                } while (numEstadio>=cantEstadios);
+                } while (numEstadio >= cantEstadios);
 
-                posEstadio = Abreviatura.posEstadio(Estadios, numEstadio, pos,cantEstadios);
+                posEstadio = Abreviatura.posEstadio(Estadios, numEstadio, pos, cantEstadios);
                 nomModificado = Abreviatura.abreviatura(Estadios, posEstadio, pos);
                 nomModificado = Abreviatura.Mayuscula(nomModificado);
 
