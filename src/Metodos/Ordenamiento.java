@@ -12,7 +12,7 @@ import Clase.Estadio;
 
 public class Ordenamiento {
 
-//Insercion--------------------------------------------------
+//Insercion
 //Ascendentemente
     public static void insercionA(Estadio Estadios[], int cantEstadios) {
 
@@ -33,9 +33,8 @@ public class Ordenamiento {
         }
         Estadios[j + 1] = auxEstadio;
     }
-//Descendentemente
-//hacer pruebas y decir veces mas rapido
 
+    //Descendentemente
     public static void insercionD(Estadio Estadios[], int cantEstadios) {
         for (int i = 1; i < cantEstadios; i++) {
             reubicarD(Estadios, i);
@@ -54,36 +53,36 @@ public class Ordenamiento {
         Estadios[j + 1] = auxEstadio;
     }
 
-//quicksort--------------------------------------------------Hacer traza del quicksort°°°°°°°°°°°°!!!!!!
+    //Quicksort
     // Ascendentemente
     public static void quicksortA(Estadio Estadios[], int izq, int der) {
         Estadio pivoteEstadio = new Estadio(0);
         Estadio auxEstadio = new Estadio(0);
-        pivoteEstadio = Estadios[izq];          // tomamos primer elemento como pivote
-        int i = izq;                            //i analiza de izquierda a derecha                                               
-        int j = der;                            //j analiza de derecha a izquierda                         
+        pivoteEstadio = Estadios[izq];          //  tomamos primer elemento como pivote 
+        int i = izq;                            //  i analiza de izquierda a derecha                                               
+        int j = der;                            //  j analiza de derecha a izquierda                         
 
         while (i < j) {                         // mientras no se crucen las búsquedas                                   
             while (Estadios[i].CompareTo(pivoteEstadio) <= 0 && i < j) {
                 i++;                            // busca elemento mayor que pivote
             }
             while (Estadios[j].CompareTo(pivoteEstadio) > 0) {
-                j--;                            // busca elemento menor que pivote
+                j--;                            // busca elemento menor que pivote 
             }
-            if (i < j) {                        // si no se han cruzado los elementos                                               
-                auxEstadio = Estadios[i];       // los intercambia           
+            if (i < j) {                        //si las iteradores no se cruzan                                              
+                auxEstadio = Estadios[i];       // intercambia elemtos          
                 Estadios[i] = Estadios[j];
                 Estadios[j] = auxEstadio;
             }
         }
 
-        Estadios[izq] = Estadios[j];                         // se coloca el pivote en su lugar de forma que tendremos                                    
-        Estadios[j] = pivoteEstadio;                         // los menores a su izquierda y los mayores a su derecha 
-
+        Estadios[izq] = Estadios[j];                   // se coloca el pivote de forma en donde los elementos                                    
+        Estadios[j] = pivoteEstadio;                   // menores a su esten a su izquierda y los mayores a su derecha 
+                                                       //repetimos procesos con los subconjunto restantes
         if (izq < j - 1) {
             quicksortA(Estadios, izq, j - 1);          // ordenamos subarray izquierdo
         }
-        //divide en 2 subarray
+
         if (j + 1 < der) {
             quicksortA(Estadios, j + 1, der);          // ordenamos subarray derecho
         }
@@ -93,32 +92,32 @@ public class Ordenamiento {
     public static void quicksortD(Estadio Estadios[], int izq, int der) {
         Estadio pivoteEstadio = new Estadio(0);
         Estadio auxEstadio = new Estadio(0);
-        pivoteEstadio = Estadios[izq];          // tomamos primer elemento como pivote
-        int i = izq;                            // i realiza la búsqueda de izquierda a derecha
-        int j = der;                            // j realiza la búsqueda de derecha a izquierda
+        pivoteEstadio = Estadios[izq];
+        int i = izq;
+        int j = der;
 
-        while (i < j) {                         // mientras no se crucen las búsquedas                                   
+        while (i < j) {
             while (Estadios[i].CompareTo(pivoteEstadio) >= 0 && i < j) {
-                i++;                            // busca elemento mayor que pivote
+                i++;
             }
             while (Estadios[j].CompareTo(pivoteEstadio) < 0) {
-                j--;                            // busca elemento menor que pivote
+                j--;
             }
-            if (i < j) {                        // si no se han cruzado                      
-                auxEstadio = Estadios[i];                     // los intercambia
+            if (i < j) {
+                auxEstadio = Estadios[i];
                 Estadios[i] = Estadios[j];
                 Estadios[j] = auxEstadio;
             }
         }
 
-        Estadios[izq] = Estadios[j];                         // se coloca el pivote en su lugar de forma que tendremos                                    
-        Estadios[j] = pivoteEstadio;                         // los menores a su izquierda y los mayores a su derecha
-
+        Estadios[izq] = Estadios[j];
+        Estadios[j] = pivoteEstadio;
+        
         if (izq < j - 1) {
-            quicksortD(Estadios, izq, j - 1);          // ordenamos subarray izquierdo
+            quicksortD(Estadios, izq, j - 1);
         }
         if (j + 1 < der) {
-            quicksortD(Estadios, j + 1, der);          // ordenamos subarray derecho
+            quicksortD(Estadios, j + 1, der);
         }
     }
 }

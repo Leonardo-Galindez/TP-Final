@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Archivo;
+package Metodos;
 
-import Metodos.Ordenamiento;//llamada a los metodos de ordenamiento
-import Clase.Estadio;//importamos la clase estadio
-import Metodos.Abreviatura;//importamos la clase abreviatura
+import Metodos.LeerArchivo;
+import Clase.Estadio;
 import java.util.Scanner;
 
 /**
@@ -14,17 +13,16 @@ import java.util.Scanner;
  * @author galin
  */
 public class main {
-
-    //metodos estaticos explicacion
-    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\Archivo\\txt\\estadiosMundiales.txt";//variable estica porque??
+        
+    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\Archivo\\estadiosMundiales.txt";//variable estica porque??
 
     public static void main(String[] args) {
         int rta, cantEstadios;
         boolean valor = false;
         Scanner sc = new Scanner(System.in);
-        Estadio Estadios[] = new Estadio[1000000];
+        Estadio Estadios[] = new Estadio[1000000];//definimos un arreglo sobredimensionado
         cantEstadios = LeerArchivo.leerTxt(direccion, Estadios, 1);//metodo para leer el archivo
-        //LeerArchivo.MostrarEstadios(Estadios);
+        
 
         do {
             System.out.println("");
@@ -56,13 +54,13 @@ public class main {
 
                 rtaSub = sc.nextInt();
                 if (rtaSub == 1) {//Ascendiente
-
-                    double tiempoI = System.nanoTime();
+                    //Consultar sobre si esta bien aplicado el nanoTime()---------------------------------------
+                    double tiempoI = System.nanoTime();//iniciamos el tiempo
                     Ordenamiento.quicksortA(Estadios, 0, cantEstadios - 1);
                     LeerArchivo.MostrarEstadios(Estadios, cantEstadios);
-                    double tiempoF = System.nanoTime();
-                    double tiempoTotal = tiempoF - tiempoI;
-                    tiempoTotal = tiempoTotal * 0.000000001;
+                    double tiempoF = System.nanoTime();//finalizamos el tiempo
+                    double tiempoTotal = tiempoF - tiempoI;//tiempo total
+                    tiempoTotal = tiempoTotal * 0.000000001;//pasamos a segundos 
                     System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
 
                 } else {
@@ -114,7 +112,7 @@ public class main {
                 do {
                     System.out.println("Ingrese numero Estadio");
                     numEstadio = sc.nextInt();
-                } while (numEstadio >= cantEstadios);
+                } while (numEstadio >= cantEstadios || numEstadio <=0);//solo puede ingresar un numero valido
 
                 posEstadio = Abreviatura.posEstadio(Estadios, numEstadio, pos, cantEstadios);
                 nomModificado = Abreviatura.abreviatura(Estadios, posEstadio, pos);

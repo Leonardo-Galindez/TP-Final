@@ -2,13 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Archivo;
+package Metodos;
 
 /**
  *
  * @author galin
  */
 //import java.io.*
+
+//consulta sobre si esta bien explicado las clases ---------------------
 import Clase.Estadio;
 import java.io.BufferedReader;//tomar cada linea y asignarla a una variable
 import java.io.FileNotFoundException;// avisa si el archivo ni existe
@@ -25,8 +27,7 @@ public class LeerArchivo {
             String linea;
             while ((linea = bf.readLine()) != null) { //repite mientras bf tiene datos
                 ObtenerAtributos(linea, Atributos);   //obtenemos los atributos separados en un arreglo
-                CargarEstadio(Estadios, Atributos, j);//mandamos el arreglo atributos para cargarlo
-                //a cada estadios
+                CargarEstadio(Estadios, Atributos, j);//mandamos el arreglo atributos para cargarlo a cada estadio
                 j++;//j es la variable iteradora que la usamos en la cargar del estadio
                 cantEstadios++;//tenemos un control de la cantidad de estadios que se cargaron al arreglo
             }
@@ -34,15 +35,15 @@ public class LeerArchivo {
         } catch (FileNotFoundException ex) {//error de archivo no encontrado
             System.err.println(ex.getMessage() + "\nSignifica que el archivo del "
                     + "que queriamos leer no existe.");
-        } catch (IOException ex) {//error permisos
+        } catch (IOException ex) {//error de permisos
             System.err.println("Error leyendo o escribiendo en algun archivo.");
         }
         //podemos agregar otro catch Exception y mostrar cualquier error
         return cantEstadios - 1;
     }
-
-    public static void ObtenerAtributos(String linea, String Atributos[]) {//separa la linea en atributos y
-        //lo guardo en un arreglo
+    //separa la linea en atributos y lo guardo en un arreglo
+    public static void ObtenerAtributos(String linea, String Atributos[]) {
+        
         String atributo;
         int i = 0, posIni = 0, posEnd;
         while (i < Atributos.length) {

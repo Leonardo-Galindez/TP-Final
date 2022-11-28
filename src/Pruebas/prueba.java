@@ -1,3 +1,5 @@
+package Pruebas;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -14,7 +16,9 @@ public class prueba {
 
     public static void main(String[] args) {
 
-        double Itiempo = System.nanoTime();
+        
+        
+        /*double Itiempo = System.nanoTime();
         System.out.println(Itiempo);
         double Ftiempo = System.nanoTime();
         System.out.println(Ftiempo);
@@ -25,7 +29,7 @@ public class prueba {
         MostrarArray(A);
         quicksort(A, izq, der);
         System.out.println("");
-        MostrarArray(A);
+        MostrarArray(A);*/
     }
 
     public static void quicksort(int A[], int izq, int der) {
@@ -36,19 +40,19 @@ public class prueba {
         int aux;
 
         while (i < j) {                         // mientras no se crucen las búsquedas                                   
-            while (A[i] <= pivote && i < j) {
+            while (A[i] <= pivote && i < j) {   //evalua de izquierda a derecha cuales son menores que el pivote
                 i++;                            // busca elemento mayor que pivote
             }
-            while (A[j] > pivote) {
-                j--;                            // busca elemento menor que pivote
+            while (A[j]>= pivote) {             
+                j--;                            // repite hasta encontrar el elemento menor que el pivote
             }
             if (i < j) {                        // si no se han cruzado                      
-                aux = A[i];                     // los intercambia
+                aux = A[i];                     // los intercambia el elemento mayor y el menor encontrado anteriormente
                 A[i] = A[j];
                 A[j] = aux;
             }
         }
-
+                                                //al terminar el ciclo while quire decir que se han cruzado 
         A[izq] = A[j];                         // se coloca el pivote en su lugar de forma que tendremos                                    
         A[j] = pivote;                         // los menores a su izquierda y los mayores a su derecha
 
