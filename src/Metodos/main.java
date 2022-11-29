@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class main {
     //definimos una variable constante para todas las clases    
-    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\Archivo\\estadiosMundiales.txt";
+    static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\Archivo\\estadiosMundiales.txt";
 
     public static void main(String[] args) {
         int rta, cantEstadios;
@@ -113,7 +113,7 @@ public class main {
                 do {
                     System.out.println("Ingrese numero Estadio");
                     numEstadio = sc.nextInt();
-                } while (numEstadio >= cantEstadios || numEstadio <=0);//solo puede ingresar un numero valido
+                } while (numEstadio >cantEstadios || numEstadio <=0);//solo puede ingresar un numero valido
 
                 posEstadio = Abreviatura.posEstadio(Estadios, numEstadio, pos, cantEstadios);
                 nomModificado = Abreviatura.abreviatura(Estadios, posEstadio, pos);
