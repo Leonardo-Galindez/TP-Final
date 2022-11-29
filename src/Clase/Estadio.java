@@ -80,8 +80,12 @@ public class Estadio {
                 + " \nCapacidad:" + capacidad
                 + " \nMundial:" + mundial;
     }
-
-    public int CompareTo(Estadio nuevoEstadio) {//consulta sobre este metodo?????
+    //retorna
+    //positivo si la ciudad del estadio llamador es mayor al que entra por parametros
+    //negativo si la ciudad del estadio llamador es menor al que entra por parametros
+    //positivo si son iguales
+    public int CompareTo(Estadio nuevoEstadio) {
+        
         int num;
 
         if (this.ciudad.compareTo(nuevoEstadio.ciudad) == 0) {
