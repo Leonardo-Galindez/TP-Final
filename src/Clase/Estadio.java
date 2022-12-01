@@ -64,12 +64,12 @@ public class Estadio {
         this.ciudad = ciu;
     }
 
-    public void setCapacidad(String nom) {
-        this.nombre = nom;
+    public void setCapacidad(int capa) {
+        this.capacidad = capa;
     }
 
-    public void setMundial(String nom) {
-        this.nombre = nom;
+    public void setMundial(String anioM) {
+        this.mundial = anioM;
     }
 
     //mostradores
