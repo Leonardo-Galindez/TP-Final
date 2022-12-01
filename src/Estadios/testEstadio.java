@@ -3,18 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Estadios;
+
 import java.util.Scanner;
 import java.io.BufferedReader;//tomar cada linea y asignarla a una variable
 import java.io.FileNotFoundException;// avisa si el archivo ni existe
 import java.io.FileReader;//clase para leer el archivo
 import java.io.IOException;// avisa si el archivo no tiene los permisos o esta abierto
+
 /**
  *
  * @author galin
  */
 public class testEstadio {
+
     //definimos una variable constante para todas las clases    
-    static final String direccion = "C:\\Users\\galin\\OneDrive\\Documentos\\NetBeansProjects\\TP-Final\\src\\Archivo\\estadiosMundiales.txt";
+    static final String direccion = "C:\\Users\\galin\\Documents\\NetBeansProjects\\TP-Final\\TP-Final\\src\\Archivo\\estadiosMundiales.txt";
+
     public static void main(String[] args) {
         int rta, cantEstadios, numEstadio, pos = 0, posEstadio, rtaSub;
         boolean valor = false;
@@ -113,12 +117,8 @@ public class testEstadio {
             }
         } while (!valor);
     }
-    public static void copiarArreglo(Estadio[] arr, Estadio[] copia) {
-        for (int i = 0; i < copia.length; i++) {
-            copia[i] = arr[i];
-        }
-    }
-    //Menus
+
+    //MENUS------------------------------------------------------------------
     public static int MostrarSubMenu() {
         int rtaSub;
         Scanner sc = new Scanner(System.in);
@@ -130,6 +130,7 @@ public class testEstadio {
         rtaSub = sc.nextInt();
         return rtaSub;
     }
+
     public static int MostrarMenu() {
         int rta;
         Scanner sc = new Scanner(System.in);
@@ -143,6 +144,8 @@ public class testEstadio {
         rta = sc.nextInt();
         return rta;
     }
+
+    //CARGAR ARREGLO ESTADIOS------------------------------------------------------------------
     //Metod para leer el archivo txt
     public static int leerTxt(String direccion, Estadio Estadios[], int cantEstadios) {
         try {
@@ -166,6 +169,14 @@ public class testEstadio {
         //podemos agregar otro catch Exception y mostrar cualquier error
         return cantEstadios - 1;
     }
+
+    //Copia el arreglo original a una copia que sera usada con los ordenamientos
+    public static void copiarArreglo(Estadio[] arr, Estadio[] copia) {
+        for (int i = 0; i < copia.length; i++) {
+            copia[i] = arr[i];
+        }
+    }
+
     //separa la linea en atributos y lo guardo en un arreglo
     public static void ObtenerAtributos(String linea, String Atributos[]) {
         String atributo;
@@ -178,6 +189,7 @@ public class testEstadio {
             i++;
         }
     }
+
     public static void CargarEstadio(Estadio Estadios[], String Atributos[], int j) {//le asigno los atributos al estadio
         String nombre, ciudad, mundial;
         int numero, capacidad;
@@ -189,12 +201,15 @@ public class testEstadio {
         Estadio nuevoEstadio = new Estadio(numero, nombre, ciudad, capacidad, mundial);//constructor 
         Estadios[j] = nuevoEstadio;//asignamos el objeto a al arreglo segun la posicion j
     }
+
     public static void MostrarEstadios(Estadio Estadios[], int cantEstadios) {
         for (int i = 0; i < cantEstadios; i++) {
             System.out.println(Estadios[i].toString());
             System.out.println("");//salto
         }
     }
+
+    //ABREVIATURA------------------------------------------------------------------
     //metodo para buscar la posicion del estadio
     public static int posEstadio(Estadio Estadios[], int numEstadio, int i, int cantEstadios) {
         int pos = 0;
@@ -207,6 +222,7 @@ public class testEstadio {
         }
         return pos;
     }
+
     //metodo que retorna una cadena sin vocales y sin espacios
     public static String abreviatura(Estadio Estadios[], int numEstadio, int pos) {
         String nomOficial, nomModificado = "";
@@ -222,6 +238,7 @@ public class testEstadio {
         }
         return nomModificado;
     }
+
     //metodo vuelve la primer letra de la cadena  mayuscula
     public static String Mayuscula(String cadena) {
         String nuevaCadena = "";
@@ -237,6 +254,8 @@ public class testEstadio {
         }
         return nuevaCadena;
     }
+
+    //ORDENAMINETOS------------------------------------------------------------------
     //Insercion
     //Ascendentemente
     public static void insercionA(Estadio Estadios[], int cantEstadios) {
@@ -244,6 +263,7 @@ public class testEstadio {
             reubicarA(Estadios, i);
         }
     }
+
     public static void reubicarA(Estadio Estadios[], int i) {
         int j;
         Estadio auxEstadio = new Estadio(0);
@@ -255,12 +275,14 @@ public class testEstadio {
         }
         Estadios[j + 1] = auxEstadio;
     }
+
     //Descendentemente
     public static void insercionD(Estadio Estadios[], int cantEstadios) {
         for (int i = 1; i < cantEstadios; i++) {
             reubicarD(Estadios, i);
         }
     }
+
     public static void reubicarD(Estadio Estadios[], int i) {
         int j;
         Estadio auxEstadio = new Estadio(0);
@@ -272,6 +294,7 @@ public class testEstadio {
         }
         Estadios[j + 1] = auxEstadio;
     }
+
     //Quicksort
     // Ascendentemente
     public static void quicksortA(Estadio Estadios[], int izq, int der) {//
@@ -280,14 +303,15 @@ public class testEstadio {
         pivoteEstadio = Estadios[izq];          //  tomamos primer elemento como pivote 
         int i = izq;                            //  i analiza de izquierda a derecha                                               
         int j = der;                            //  j analiza de derecha a izquierda                         
-        while (i < j) {                         // mientras no se crucen las búsquedas                                   
+        while (i < j) {                         //  este while nos va a separar los menor y mayores que el pivote
+            // y repite hasta que i y j se crucen
             while (Estadios[i].CompareTo(pivoteEstadio) <= 0 && i < j) {
                 i++;                            // busca elemento mayor que pivote
             }
             while (Estadios[j].CompareTo(pivoteEstadio) > 0) {
                 j--;                            // busca elemento menor que pivote 
             }
-            if (i < j) {                        //si las iteradores no se cruzan                                              
+            if (i < j) {                        //  si las iteradores no se cruzan                                              
                 auxEstadio = Estadios[i];       // intercambia elemtos          
                 Estadios[i] = Estadios[j];
                 Estadios[j] = auxEstadio;
@@ -303,12 +327,13 @@ public class testEstadio {
             quicksortA(Estadios, j + 1, der);          // ordenamos subarray derecho
         }
     }
+
     //Descendentemente
     public static void quicksortD(Estadio Estadios[], int izq, int der) {
         Estadio pivoteEstadio = new Estadio(0);
         Estadio auxEstadio = new Estadio(0);
         pivoteEstadio = Estadios[izq];
-        int i = izq;//HACER QUE SEA MEDIO EL PIVOTE
+        int i = izq;
         int j = der;
         while (i < j) {
             while (Estadios[i].CompareTo(pivoteEstadio) >= 0 && i < j) {
