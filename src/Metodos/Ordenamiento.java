@@ -55,7 +55,7 @@ public class Ordenamiento {
 
     //Quicksort
     // Ascendentemente
-    public static void quicksortA(Estadio Estadios[], int izq, int der) {
+    public static void quicksortA(Estadio Estadios[], int izq, int der) {//
         Estadio pivoteEstadio = new Estadio(0);
         Estadio auxEstadio = new Estadio(0);
         pivoteEstadio = Estadios[izq];          //  tomamos primer elemento como pivote 

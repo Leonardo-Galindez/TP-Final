@@ -21,7 +21,7 @@ public class LeerArchivo {
 
     public static int leerTxt(String direccion, Estadio Estadios[], int cantEstadios) {
         try {
-            int j = 0, cantAtributos = 5;
+            int j = 0, cantAtributos = 5;//Si agregamos mas atributos le asignamos mas posiciones al array
             String Atributos[] = new String[cantAtributos];
             BufferedReader bf = new BufferedReader(new FileReader(direccion));//buffer lee linea por linea
             String linea;

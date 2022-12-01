@@ -6,7 +6,7 @@ package Metodos;
 import Clase.Estadio;
 public class Abreviatura {
     //metodo retorna la posicion del numero del estadio ingresado por teclado
-    public static int posEstadio(Estadio Estadios[], int numEstadio, int i, int cantEstadios) {
+    public static int posEstadio(Estadio Estadios[], int numEstadio, int i, int cantEstadios) {//consulta sobre modulo de busca de numero
         int pos = 0;
         if (i < cantEstadios) {
             if (numEstadio == Estadios[i].getNumero()) {
@@ -15,6 +15,7 @@ public class Abreviatura {
                 pos = posEstadio(Estadios, numEstadio, i + 1, cantEstadios);
             }
         }
+        System.out.println(pos);
         return pos;
     }
     //metodo que retorna una cadena sin vocales y sin espacios
