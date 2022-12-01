@@ -46,22 +46,24 @@ public class testEstadio {
                     switch (rtaSub) {
                         case 1:
                             copiarArreglo(Estadios, copiaEstadios);
-                            tiempoI = 0;
+
                             tiempoI = System.nanoTime();                //iniciamos el tiempo
                             quicksortA(copiaEstadios, 0, cantEstadios - 1);
+                            tiempoF = System.nanoTime();   //finalizamos el tiempo
                             MostrarEstadios(copiaEstadios, cantEstadios);
-                            tiempoF = System.nanoTime();                //finalizamos el tiempo
+
                             tiempoTotal = tiempoF - tiempoI;            //tiempo total
                             tiempoTotal = tiempoTotal;    //pasamos de nanosegundos a segundos 
                             System.out.println("tiempo quicksort Ascendiente:" + tiempoTotal);
                             break;
                         case 2:
                             copiarArreglo(Estadios, copiaEstadios);
-                            tiempoI = 0;
-                            tiempoI = System.nanoTime();//modularizar
+
+                            tiempoI = System.nanoTime();
                             quicksortD(copiaEstadios, 0, cantEstadios - 1);
-                            MostrarEstadios(copiaEstadios, cantEstadios);
                             tiempoF = System.nanoTime();
+                            MostrarEstadios(copiaEstadios, cantEstadios);
+
                             tiempoTotal = tiempoF - tiempoI;
                             tiempoTotal = tiempoTotal;
                             System.out.println("tiempo quicksort descendiente:" + tiempoTotal);
@@ -81,22 +83,24 @@ public class testEstadio {
                     switch (rtaSub) {
                         case 1:
                             copiarArreglo(Estadios, copiaEstadios);
-                            tiempoI = 0;
+
                             tiempoI = System.nanoTime();            //tiempo inicial  cambiar a long
                             insercionA(copiaEstadios, cantEstadios);
+                            tiempoF = System.nanoTime();//tiempo final
                             MostrarEstadios(copiaEstadios, cantEstadios);
-                            tiempoF = System.nanoTime();            //tiempo final
+
                             tiempoTotal = tiempoF - tiempoI;        //tiempo total
                             tiempoTotal = tiempoTotal;
                             System.out.println("tiempo insercion Ascendiente:" + tiempoTotal);
                             break;
                         case 2:
                             copiarArreglo(Estadios, copiaEstadios);
-                            tiempoI = 0;
+
                             tiempoI = System.nanoTime();
                             insercionD(copiaEstadios, cantEstadios);
-                            MostrarEstadios(copiaEstadios, cantEstadios);
                             tiempoF = System.nanoTime();
+                            MostrarEstadios(copiaEstadios, cantEstadios);
+
                             tiempoTotal = tiempoF - tiempoI;
                             tiempoTotal = tiempoTotal;
                             System.out.println("tiempo insercion descendiente:" + tiempoTotal);
@@ -358,7 +362,7 @@ public class testEstadio {
         Estadio pivoteEstadio = new Estadio(0);
         Estadio auxEstadio = new Estadio(0);
         pivoteEstadio = Estadios[izq];
-        int i = izq;
+        int i = izq;//HACER QUE SEA MEDIO
         int j = der;
 
         while (i < j) {
