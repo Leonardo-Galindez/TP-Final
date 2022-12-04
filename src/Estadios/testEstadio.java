@@ -182,7 +182,9 @@ public class testEstadio {
         try {
             int j = 0, cantAtributos = 5;//Si agregamos mas atributos le asignamos mas posiciones al array
             String Atributos[] = new String[cantAtributos];
-            BufferedReader bf = new BufferedReader(new FileReader(direccion));//buffer lee linea por linea
+            BufferedReader bf = new BufferedReader(new FileReader(direccion));
+            //FileReader lee caracter por caracter
+            //buffer lee linea por linea
             String linea;
             while ((linea = bf.readLine()) != null) { //repite mientras bf tiene datos
                 ObtenerAtributos(linea, Atributos);   //obtenemos los atributos separados en un arreglo
@@ -191,10 +193,12 @@ public class testEstadio {
                 cantEstadios++;//tenemos un control de la cantidad de estadios que se cargaron al arreglo
             }
             bf.close();//cerramos el archivo
+            //una excepcion representa errores logicos para no finalizar la ejecucion
         } catch (FileNotFoundException ex) {//error de archivo no encontrado
             System.err.println(ex.getMessage() + "\nSignifica que el archivo del "
                     + "que queriamos leer no existe.");
-        } catch (IOException ex) {//error de permisos
+            //Message devuelve la ecepcion
+        } catch (IOException ex) {//error de permisos entrada y salida
             System.err.println("Error leyendo o escribiendo en algun archivo.");
         }
         //podemos agregar otro catch Exception y mostrar cualquier error
