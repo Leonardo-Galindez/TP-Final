@@ -84,23 +84,18 @@ public class Estadio {
     //positivo si la ciudad del estadio llamador es mayor al que entra por parametros
     //negativo si la ciudad del estadio llamador es menor al que entra por parametros
     //positivo si son iguales
-    public int CompareTo(Estadio nuevoEstadio) {
-        
+    public int CompareTo(Estadio nuevoEstadio) {      
         int num;
-
         if (this.ciudad.compareTo(nuevoEstadio.ciudad) == 0) {
             //si la ciudad es igual realiza la comparacion mediante el nombre del estadio
             num = this.nombre.compareTo(nuevoEstadio.nombre);
         } else {
             num = this.ciudad.compareTo(nuevoEstadio.ciudad);
         }
-
         return num;
     }
-
     public boolean equals(Estadio nuevoEstadio) {
         return this.numero == nuevoEstadio.numero;
     }
-
     //propias del tipo
 }
